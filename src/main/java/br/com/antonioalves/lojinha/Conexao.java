@@ -5,7 +5,9 @@
 package br.com.antonioalves.lojinha;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -18,14 +20,26 @@ public class Conexao {
     private static final String USER = "root";
     private static final String PASSWORD = "231281";
     
-    
+   
     public static Connection getConnection() throws SQLException{
-        
-        
-    
+        try{
+            Class.forName(DRIVER);
+            return DriverManager.getConnection(SERVER_MYSQL, USER, PASSWORD);
+        }catch(ClassNotFoundException ex){
+            throw new SQLException("Erro de conexão com o Servidor.");
+        }
     }
     
-    
+    public static void main(String[] args){
+        try{
+            Connection conn = Conexao.getConnection();
+            JOptionPane.showMessageDialog(null,
+                    "Conexão realizada com sucesso");
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+            ex.printStackTrace();
+        }
+    }
     
     
 }
