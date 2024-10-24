@@ -15,9 +15,11 @@ import javax.swing.JOptionPane;
  * @author professor
  */
 public class Conexao {
+    //Altere a porta de 3308 para 3306
     private static final String SERVER_MYSQL = "jdbc:mysql://localhost:3308/lojinha";
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String USER = "root";
+    // Altere a senha para de 231281 para mysql
     private static final String PASSWORD = "231281";
     
    
