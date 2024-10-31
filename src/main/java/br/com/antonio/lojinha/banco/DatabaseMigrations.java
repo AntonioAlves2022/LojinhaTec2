@@ -12,7 +12,7 @@ public class DatabaseMigrations {
         try{
             Flyway flyway = Flyway
                 .configure()
-                .dataSource("jdbc:mysql://localhost:3308/lojinha", "root", "231281")
+                .dataSource("jdbc:mysql://localhost:3306/lojinha", "root", "231281")
                 .locations("classpath:db/migration").validateMigrationNaming(true)
                 .load();
         flyway.migrate(); // Executa as migrations
