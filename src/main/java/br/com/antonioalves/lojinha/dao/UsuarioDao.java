@@ -4,7 +4,11 @@
  */
 package br.com.antonioalves.lojinha.dao;
 
+import br.com.antonioalves.lojinha.Conexao;
 import br.com.antonioalves.lojinha.entidades.Usuario;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  *
@@ -20,8 +24,28 @@ public class UsuarioDao implements InterBanco{
     }
 
     @Override
-    public boolean create() {
+    public boolean create() { 
         boolean sucesso = false;
+        try{
+            String query = "insert into usuarios ";
+            query = query + "(nome, email, senha, ";
+            query = query + "endereco, cidade, estado) ";
+            query = query +"values(?,?,?,?,?,?)";
+            
+            Connection conn = Conexao.getConnection();
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1,usuario.getNome());
+            pst.setString(2,usuario.getEmail());
+            pst.setString(3,usuario.getSenha());
+            pst.setString(4,usuario.getEndereco());
+            pst.setString(5,usuario.getCidade());
+            pst.setString(6,usuario.getEstado());
+            pst.executeUpdate();
+            sucesso = true;
+        }catch(SQLException ex){
+             sucesso = false;
+             System.out.println(ex.getMessage());
+        }
         return sucesso;
     }
 

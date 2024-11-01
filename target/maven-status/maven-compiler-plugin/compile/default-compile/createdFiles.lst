@@ -1,5 +1,7 @@
-br\com\antonio\lojinha\banco\DatabaseMigrations.class
 br\com\antonioalves\lojinha\Conexao.class
 br\com\antonioalves\lojinha\Lojinha.class
 br\com\antonioalves\lojinha\entidades\Usuario.class
+br\com\antonio\lojinha\banco\DatabaseMigrations.class
+br\com\antonioalves\lojinha\dao\InterBanco.class
+br\com\antonioalves\lojinha\dao\UsuarioDao.class
 br\com\antonioalves\lojinha\entidades\Produto.class

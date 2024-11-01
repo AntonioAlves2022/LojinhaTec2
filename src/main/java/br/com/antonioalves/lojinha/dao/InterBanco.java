@@ -14,5 +14,5 @@ public interface InterBanco {
     public boolean update();
     public boolean delete();
     public boolean findAll();
-    public boolean findById(int id);
+    public boolean findById(int id );
 }
