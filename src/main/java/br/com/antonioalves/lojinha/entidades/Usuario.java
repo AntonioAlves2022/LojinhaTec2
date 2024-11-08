@@ -65,11 +65,8 @@ public class Usuario{
     public String getCidade() {
         return cidade;
     }
-    // Se o nome tiver menos de 3 caracteres, será lançado um erro
-    public void setCidade(String cidade) throws Exception {
-        if(cidade.length() < 3){
-            throw new Exception("O nome deve ter pelo menos 3 letras");
-        }
+    
+    public void setCidade(String cidade) {
         this.cidade = cidade;
     }
 

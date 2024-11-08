@@ -2,6 +2,7 @@
 package br.com.antonio.lojinha.banco;
 
 import org.flywaydb.core.Flyway;
+import org.flywaydb.core.api.FlywayException;
 
 /**
  *
@@ -17,9 +18,8 @@ public class DatabaseMigrations {
                 .load();
         flyway.migrate(); // Executa as migrations
         System.out.println("Migration executada");
-        }catch(Exception ex){
-            System.out.println("Erro: "+ ex.getMessage());
-            System.out.println("Causa: "+ ex.getCause());
+        }catch(FlywayException ex){
+            System.out.println("Ex:" + ex.getMessage());
         }
         
     }
